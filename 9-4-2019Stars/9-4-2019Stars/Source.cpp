@@ -9,8 +9,8 @@ class stars {
 private:
 	double x;
 	double y;
-	int r;
-	int g;
+	int rg;
+
 	int b;
 	double size;
 	double tj;
@@ -86,29 +86,23 @@ int main() {
 stars::stars() {
 	x = rand() % 1000;
 	y = rand() % 1000;
-	r = rand() % 255;
-	g = rand() % 255;
+	rg = rand() % 255;
 	b = rand() % 255;
 	tj = 1;
 	size = rand() % 1 +tj;
 }
 
 void stars::draw() {
-	al_draw_filled_circle(x, y, size, al_map_rgb(r, g, b));
+	al_draw_filled_circle(x, y, size, al_map_rgb(rg, rg, b));
 }
 
 void stars::move() {
-	y += tj;
+	y += 1;
 }
 
 void stars::preposition() {
 	if (y > 1002) {
 		y = -2;
 	}
-	size = rand() % 1 + tj;
-	size++;
-	if (tj < 100)
-		tj += 5;
-	else if (tj >= 100)
-		tj = 0;
+
 }
